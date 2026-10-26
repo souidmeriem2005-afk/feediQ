@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="علفتي الذكية">
+  <rect width="512" height="512" rx="96" fill="#14532d"/>
+  <path d="M128 336c0-104 64-168 176-176 16-1 32 0 48 4 0 112-64 184-176 192-16 1-32 0-48-4Z" fill="#86efac"/>
+  <path d="M144 384c24-72 72-128 152-168" fill="none" stroke="#f5efe1" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="352" cy="128" r="24" fill="#f5efe1"/>
+</svg>

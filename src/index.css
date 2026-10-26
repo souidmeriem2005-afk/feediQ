@@ -1,0 +1,174 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Cairo', 'Tajawal', 'Segoe UI', system-ui, -apple-system, 'Noto Naskh Arabic',
+    'Arial', sans-serif;
+
+  --color-brand-50: #f0fdf4;
+  --color-brand-100: #dcfce7;
+  --color-brand-200: #bbf7d0;
+  --color-brand-300: #86efac;
+  --color-brand-400: #4ade80;
+  --color-brand-500: #22c55e;
+  --color-brand-600: #16a34a;
+  --color-brand-700: #15803d;
+  --color-brand-800: #166534;
+  --color-brand-900: #14532d;
+  --color-brand-950: #052e16;
+
+  --color-sand-50: #faf7f0;
+  --color-sand-100: #f5efe1;
+  --color-sand-200: #ece2cc;
+  --color-sand-300: #dfcfae;
+  --color-sand-400: #cdb588;
+  --color-sand-500: #bd9d6a;
+  --color-sand-600: #a98656;
+  --color-sand-700: #8c6c45;
+  --color-sand-800: #73573b;
+  --color-sand-900: #5e4834;
+
+  --radius-card: 1rem;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-sand-50 text-slate-800 antialiased;
+    font-family: var(--font-sans);
+  }
+
+  /* Arabic numerals stay Latin for data clarity, but tabular figures keep columns aligned */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-600;
+  }
+
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  /* Recharts renders SVG text; force readable RTL-friendly defaults */
+  .recharts-text {
+    font-family: var(--font-sans);
+    font-size: 12px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-sand-200 bg-white shadow-sm;
+  }
+
+  .card-pad {
+    @apply p-4 sm:p-5;
+  }
+
+  .section-title {
+    @apply text-lg font-bold text-slate-900 sm:text-xl;
+  }
+
+  .muted {
+    @apply text-sm text-slate-500;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-sm font-semibold text-slate-700;
+  }
+
+  .field-hint {
+    @apply mt-1 block text-xs leading-5 text-slate-500;
+  }
+
+  .field-error {
+    @apply mt-1 block text-xs font-semibold text-red-600;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-sand-300 bg-white px-3 py-2.5 text-base
+      text-slate-900 placeholder:text-slate-400 transition
+      focus:border-brand-500 focus:ring-4 focus:ring-brand-100 focus:outline-none
+      disabled:bg-slate-100 disabled:text-slate-500;
+  }
+
+  .input-invalid {
+    @apply border-red-400 focus:border-red-500 focus:ring-red-100;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost,
+  .btn-danger {
+    @apply inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-xl
+      px-4 py-2.5 text-sm font-bold transition select-none
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-brand-700 text-white shadow-sm hover:bg-brand-800 active:bg-brand-900;
+  }
+
+  .btn-secondary {
+    @apply border border-sand-300 bg-white text-slate-700 hover:bg-sand-100;
+  }
+
+  .btn-ghost {
+    @apply text-slate-600 hover:bg-sand-100;
+  }
+
+  .btn-danger {
+    @apply border border-red-200 bg-red-50 text-red-700 hover:bg-red-100;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold;
+  }
+
+  .table-wrap {
+    @apply -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0;
+  }
+
+  .data-table {
+    @apply w-full min-w-[42rem] border-collapse text-right text-sm;
+  }
+
+  .data-table thead th {
+    @apply border-b border-sand-200 bg-sand-50 px-3 py-2.5 text-xs font-bold text-slate-600 whitespace-nowrap;
+  }
+
+  .data-table tbody td {
+    @apply border-b border-sand-100 px-3 py-2.5 align-middle;
+  }
+
+  .data-table tbody tr:hover {
+    @apply bg-sand-50/60;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-2 focus:right-2 focus:z-50
+      focus:rounded-lg focus:bg-brand-700 focus:px-4 focus:py-2 focus:text-white;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
